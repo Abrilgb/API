@@ -18,6 +18,8 @@ studentsController.getAll=(req,res)=>{
     })
     
 };
+
+//Esta funcion se encarga de obtener un solo registro de la entidad de estudiantes
 studentsController.getOne=(req, res)=>{
     studentDAO.getOne(req.params.student_is)
     .then((student)=>{
