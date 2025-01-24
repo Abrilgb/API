@@ -28,4 +28,60 @@ teachersController.getOne=(req, res)=>{
         }
     });
 }
+
+teachersController.insert=(req,res)=>{
+    teacherDAO.insert(req.body)
+    .then((response)=>{
+        res.json({
+            data:{
+                message:"Teacher saved",
+                response:response
+            }
+        })
+    })
+    .catch((error)=>{
+        res.json({data:{
+            message:error
+        }
+          
+        })
+    })
+}
+
+//Esta funcion se encarga de actualizar un registro de la entidad de Teacher
+teachersController.updateOne=(req,res)=>{
+    teacherDAO.updateOne(req.params.teacher_number,req.body)
+    .then((result)=>{
+        res.json({
+            data:{
+                message:"Teacher updated successfully",
+                result:result
+        }});
+    })
+    .catch((error)=>{
+        res.json({
+            data:{
+                message:error
+            }
+        })
+    })
+};
+
+teachersController.deleteOne=(req,res)=>{
+  teacherDAO.deleteOne(req.params.teacher_number)
+  .then((teacherDelete)=>{
+      res.json({
+          data:{
+              message:"Teacher deleted successfully",
+              teacher_delete:teacherDelete
+      }});
+  })
+  .catch((error)=>{
+      res.json({
+          data:{
+              message:error
+      }});
+  });
+
+};
 export default teachersController;

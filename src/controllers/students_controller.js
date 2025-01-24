@@ -52,4 +52,39 @@ studentsController.insert=(req,res)=>{
         })
     })
 }
+
+//Esta funcion se encarga de actualizar un registro de la entidad de estudiantes
+studentsController.updateOne=(req,res)=>{
+    studentDAO.updateOne(req.params.student_is,req.body)
+    .then((result)=>{
+        res.json({
+            data:{
+                message:"Student updated successfully",
+                result:result
+        }});
+    })
+    .catch((error)=>{
+        res.json({
+            data:{
+                message:error
+        }});
+    });
+}
+
+studentsController.deleteOne=(req,res)=>{
+    studentDAO.deleteOne(req.params.student_is)
+    .then((studentDeleted)=>{
+        res.json({
+            data:{
+                message:"Student deleted successfully",
+                student_delete:studentDeleted
+        }});
+    })
+    .catch((error)=>{
+        res.json({
+            data:{
+                message:error
+        }});
+    });
+}
 export default studentsController;

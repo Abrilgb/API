@@ -29,4 +29,59 @@ classroomsController.getOne=(req, res)=>{
       }
   });
 }
+
+classroomsController.insert=(req,res)=>{
+  classroomDAO.insert(req.body)
+  .then((response)=>{
+      res.json({
+          data:{
+              message:"Classroom saved",
+              response:response
+          }
+      })
+  })
+  .catch((error)=>{
+      res.json({data:{
+          message:error
+      }
+        
+      })
+  })
+}
+
+classroomsController.updateOne=(req, res)=>{
+  classroomDAO.updateOne(req.params.classroom_number, req.body)
+  .then((result)=>{
+      res.json({
+          data:{
+              message:"Classroom updated successfully",
+              result:result
+      }});
+  })
+  .catch((error)=>{
+      res.json({
+          data:{
+              message:error
+          }
+      });
+  });
+}
+
+classroomsController.deleteOne=(req, res)=>{
+  classroomDAO.deleteOne(req.params.classroom_number)
+  .then((classroomDelete)=>{
+      res.json({
+          data:{
+              message:"Classroom deleted successfully",
+              classroom_delete:classroomDelete
+      }});
+  })
+  .catch((error)=>{
+      res.json({
+          data:{
+              message:error
+          }
+      });
+  });
+}
 export default classroomsController; 
