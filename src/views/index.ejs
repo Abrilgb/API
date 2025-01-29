@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Escolar</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" style="overflow:hidden; background-color:rgb(242, 125, 242);">
+            <h1>Control Escolar</h1>
+            <a href="#" data-icon="gear" class="ui-btn-right">Opciones</a>
+            <div data-role="navbar" >
+                <ul>
+                    <li><a href="#">Alumnos</a></li>
+                    <li><a href="#">Docentes</a></li>
+                    <li><a href="#">Aulas</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content" class="ui-content" ">
+            <form action="/api/students/insert" method="post" >
+                <label for="txtStudentId">Matricula:</label>
+                <input type="number" name="student_id" id="txtStudentId" style="background-color:rgb(244, 204, 211)">
+                
+                <label for="txtName">Name:</label>
+                <input type="text" name="name" id="txtName" style="background-color:rgb(244, 204, 211)">
 
+                <label for="txtLastName">Last Name:</label>
+                <input type="text" name="last_name" id="txtLastName" style="background-color:rgb(244, 204, 211)">
+
+                <label for="txtgrade">Grade:</label>
+                <input type="number" name="grade" id="txtGrade" style="background-color:rgb(244, 204, 211)">
+
+                <label for="txtGroup">Group:</label>
+                <input type="text" name="group" id="txtGroup" style="background-color:rgb(244, 204, 211)">
+
+                <label for="txtAverage">Average:</label>
+                <input type="number" name="average" id="txtAverage" style="background-color:rgb(244, 204, 211)">
+
+                <button class="ui-btn ui-btn-inline" style="background: palevioletred; color: white;">Guardar</button>
+            </form>
+        </div>
+        <div data-role="footer" style="background-color:rgb(242, 125, 242);">
+            <h4 style="text-align: center;">Redes Sociales</h4>
+            <div data-role="navbar">
+            <ul>
+                <li><a href="#" data-icon="user"></a></li>
+                <li><a href="#" data-icon="heart"></a></li>
+                <li><a href="#" data-icon="mail"></a></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+</body>
+</html>

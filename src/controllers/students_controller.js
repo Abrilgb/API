@@ -5,9 +5,11 @@ studentsController.getAll=(req,res)=>{
     //Aqui le voy a pedir al DAO los datos de los estudiantes
     studentDAO.getAll()
     .then((students)=>{
-        res.json({
-            data:students
-        });
+        console.log(students);
+        /*res.json({
+        //data:students
+        // });*/
+        res.render('../src/views/index.ejs')
     })
     .catch((error)=>{
         res.json({
