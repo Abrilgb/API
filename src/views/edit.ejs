@@ -22,46 +22,27 @@
             </div>
         </div>
         <div data-role="content" class="ui-content" ">
-            <form action="/api/students/insert" method="post" >
+            <form action="/api/students/updateOne/<%=student.student_is%>" method="post" >
                 <label for="txtStudentIs">Matricula:</label>
-                <input type="number" name="student_is" id="txtStudentIs" style="background-color:rgb(244, 204, 211)">
+                <input type="number" name="student_is" id="txtStudentIs" value="<%=student.student_is %>" style="background-color:rgb(244, 204, 211)">
                 
                 <label for="txtName">Name:</label>
-                <input type="text" name="name" id="txtName" style="background-color:rgb(244, 204, 211)">
+                <input type="text" name="name" id="txtName" value="<%=student.name %>" style="background-color:rgb(244, 204, 211)">
 
                 <label for="txtLastName">Last Name:</label>
-                <input type="text" name="last_name" id="txtLastName" style="background-color:rgb(244, 204, 211)">
+                <input type="text" name="last_name" id="txtLastName" value="<%=student.lastname %>" style="background-color:rgb(244, 204, 211)">
 
                 <label for="txtgrade">Grade:</label>
-                <input type="number" name="grade" id="txtGrade" style="background-color:rgb(244, 204, 211)">
+                <input type="number" name="grade" id="txtGrade" value="<%=student.grade %>" style="background-color:rgb(244, 204, 211)">
 
                 <label for="txtGroup">Group:</label>
-                <input type="text" name="group" id="txtGroup" style="background-color:rgb(244, 204, 211)">
+                <input type="text" name="group" id="txtGroup" value="<%=student.group %>" style="background-color:rgb(244, 204, 211)">
 
                 <label for="txtAverage">Average:</label>
-                <input type="number" name="average" id="txtAverage" style="background-color:rgb(244, 204, 211)">
+                <input type="number" name="average" id="txtAverage"  value="<%=student.average %>" style="background-color:rgb(244, 204, 211)">
 
-                <button class="ui-btn ui-btn-inline" style="background: palevioletred; color: white;">Guardar</button>
+                <button class="ui-btn ui-btn-inline" style="background: palevioletred; color: white;">Actualizar</button>
             </form>
-
-            <ul data-role="listview" data-filter="true" data-filter-placeholder="Search students..." data-inset="true">
-                <% students.forEach((student) => {%>
-                    <div data-role="collapsible" data-content-theme="false" >
-                        <h4><%= student.name %></h4>
-                        <p>Matricula: <%= student.student_is %></p>
-                        <p>Name: <%= student.name %></p>
-                        <p>Last Name: <%= student.lastname %></p>
-                        <p>Grade: <%= student.grade %></p>
-                        <p>Group: <%= student.group %></p>
-                        <p>Average: <%= student.average %></p>
-                        
-                        <a href="/api/students/getOne/<%= student.student_is %>" class="ui-btn ui-icon-edit ui-btn-icon-bottom" style="background: plum; color: white">Edit</a>
-                        <a href="#" class="ui-btn ui-icon-delete ui-btn-icon-bottom" style="background: palevioletred; color: white">Delete</a>
-                    </div>
-
-                <% }); %>
-            </ul>
-            
         </div>
 
         <div data-role="footer" style="background-color:rgb(242, 125, 242);">

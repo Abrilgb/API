@@ -9,7 +9,7 @@ studentsController.getAll=(req,res)=>{
         /*res.json({
         //data:students
         // });*/
-        res.render('../src/views/index.ejs')
+        res.render('../src/views/index.ejs', {students});
     })
     .catch((error)=>{
         res.json({
@@ -26,25 +26,29 @@ studentsController.getOne=(req, res)=>{
     studentDAO.getOne(req.params.student_is)
     .then((student)=>{
 
-        if(student!=null){
-            res.json({data:student});
-        }else{
-            res.json({data:{message:"Student not found"}});
-        }
+        // if(student!=null){
+        //     res.json({data:student});
+        // }else{
+        //     res.json({data:{message:"Student not found"}});
+        // }
+        res.render('../src/views/edit.ejs', {student});//renderiza la vista edit.ejs y le pasa el objeto student
     });
 };
 
 studentsController.insert=(req,res)=>{
     studentDAO.insert(req.body)
     .then((response)=>{
-        res.json({
-            data:{
-                message:"Student saved",
-                student:response
+        // res.json({
+        //     data:{
+        //         message:"Student saved",
+        //         student:response
 
 
-            }
-        })
+        //     }
+        // })
+        //redireccionar hacia otro enpoint
+
+        res.redirect('/api/students/getAll');
     })
     .catch((error)=>{
         res.json({data:{
