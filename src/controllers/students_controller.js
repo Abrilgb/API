@@ -63,11 +63,12 @@ studentsController.insert=(req,res)=>{
 studentsController.updateOne=(req,res)=>{
     studentDAO.updateOne(req.params.student_is,req.body)
     .then((result)=>{
-        res.json({
-            data:{
-                message:"Student updated successfully",
-                result:result
-        }});
+        // res.json({
+        //     data:{
+        //         message:"Student updated successfully",
+        //         result:result
+        // }});
+        res.redirect('/api/students/getAll');
     })
     .catch((error)=>{
         res.json({
@@ -80,11 +81,12 @@ studentsController.updateOne=(req,res)=>{
 studentsController.deleteOne=(req,res)=>{
     studentDAO.deleteOne(req.params.student_is)
     .then((studentDeleted)=>{
-        res.json({
+        /*res.json({
             data:{
                 message:"Student deleted successfully",
                 student_delete:studentDeleted
-        }});
+        }});*/
+        res.redirect('/api/students/getAll');
     })
     .catch((error)=>{
         res.json({

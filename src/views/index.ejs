@@ -55,8 +55,8 @@
                         <p>Group: <%= student.group %></p>
                         <p>Average: <%= student.average %></p>
                         
-                        <a href="/api/students/getOne/<%= student.student_is %>" class="ui-btn ui-icon-edit ui-btn-icon-bottom" style="background: plum; color: white">Edit</a>
-                        <a href="#" class="ui-btn ui-icon-delete ui-btn-icon-bottom" style="background: palevioletred; color: white">Delete</a>
+                        <a href="/api/students/getOne/<%=student.student_is%>" class="ui-btn ui-icon-edit ui-btn-icon-bottom" style="background: plum; color: white">Edit</a>
+                        <a href="/api/students/deleteOne/<%=student.student_is%>" class="ui-btn ui-icon-delete ui-btn-icon-bottom" style="background: palevioletred; color: white">Delete</a>
                     </div>
 
                 <% }); %>
